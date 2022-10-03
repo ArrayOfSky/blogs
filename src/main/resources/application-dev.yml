@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /blogs
+spring:
+  web:
+    resources:
+      static-locations: classpath:/static/
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: gaoyifeng
+    url: jdbc:mysql://localhost:3306/blogs?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&useSSL=false
+    username: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 100
+        max-idle: 10
+        max-wait: 100000
+    timeout: 5000
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      cache-null-values: false
+pagehelper:
+  reasonable: true
+  helper-dialect: mysql
+  supportMethodsArguments: true
+
+
